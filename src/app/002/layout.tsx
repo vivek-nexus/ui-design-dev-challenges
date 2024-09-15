@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import { Figtree } from 'next/font/google'
-import { weatherData } from "./weatherData";
 
 export const metadata: Metadata = {
     title: "#2 UI Design + Dev Challenges",

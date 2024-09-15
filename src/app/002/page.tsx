@@ -50,6 +50,7 @@ export default function Home() {
                     </div>
                     <hr className={`border-[${weatherData[item].textColour}]`} />
                 </nav>
+                {/* Best to use a grid for these. I am using flex with hacky margins to get window resize animations for demo.*/}
                 <div className="flex flex-wrap no-colour-transition ease-in-out duration-300 delay-100">
                     <div className="font-extrabold basis-full md:basis-1/2 mb-12 md:pr-12 no-colour-transition ease-in-out duration-300 delay-100">
                         <div className="flex gap-4 items-center mb-4 cursor-pointer"
@@ -87,7 +88,7 @@ export default function Home() {
                             <tbody>
                                 {weatherData[item].hourlyData.map((element, index) => {
                                     return (
-                                        <tr className="flex gap-4 pb-2">
+                                        <tr key={index} className="flex gap-4 pb-2">
                                             <td className="w-[30%]">{element.time}</td>
                                             <td className="w-[35%]">Clear</td>
                                             <td className="w-[5%] flex items-center">
@@ -108,13 +109,13 @@ export default function Home() {
     )
 }
 
-function SearchIcon({ colour }: { colour: String }) {
+function SearchIcon({ colour }: { colour: string }) {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill={`${colour}`}><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" /></svg>
     )
 }
 
-function DropIcon({ colour }: { colour: String }) {
+function DropIcon({ colour }: { colour: string }) {
     return (
         <svg width="6" height="7" viewBox="0 0 6 7" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M2.98955 6.42481C1.82763 6.41858 0.853838 5.34656 1.01817 4.1963C1.16818 3.14629 2.00388 2.05346 2.00388 2.05346C2.00388 2.05346 2.60463 1.28205 2.98554 0.582321C3.84668 1.90349 4.76808 2.6749 4.98236 4.1963C5.14519 5.35239 4.15704 6.43108 2.98955 6.42481Z" fill={colour} />
